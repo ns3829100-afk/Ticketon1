@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ticketon</title>
+    <title>Ticktex</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -29,7 +29,6 @@
             overflow-x: hidden;
         }
 
-        /* ── NOISE OVERLAY ── */
         body::before {
             content: '';
             position: fixed;
@@ -40,7 +39,6 @@
             opacity: 0.4;
         }
 
-        /* ── LOGIN ── */
         #pantalla-login {
             min-height: 100vh;
             display: flex;
@@ -128,12 +126,8 @@
             appearance: none;
         }
 
-        input:focus, select:focus {
-            border-color: var(--accent);
-        }
-
+        input:focus, select:focus { border-color: var(--accent); }
         select option { background: var(--black); }
-
         .field { margin-bottom: 1.25rem; }
 
         .btn {
@@ -154,24 +148,11 @@
 
         .btn:hover { background: #e03d00; transform: translateY(-1px); }
         .btn:active { transform: translateY(0); }
-
-        .btn-ghost {
-            background: transparent;
-            border: 1px solid #333;
-            color: var(--white);
-        }
+        .btn-ghost { background: transparent; border: 1px solid #333; color: var(--white); }
         .btn-ghost:hover { background: #222; border-color: #555; }
-
-        .btn-sm {
-            display: inline-block;
-            width: auto;
-            padding: 0.4rem 0.9rem;
-            font-size: 0.75rem;
-        }
-
+        .btn-sm { display: inline-block; width: auto; padding: 0.4rem 0.9rem; font-size: 0.75rem; }
         .btn-danger { background: var(--red); }
         .btn-danger:hover { background: #cc1133; }
-
         .btn-success { background: #007744; }
         .btn-success:hover { background: #005533; }
 
@@ -187,9 +168,7 @@
         }
         .error-msg.show { display: block; }
 
-        /* ── APP SHELL ── */
         #app { display: none; }
-        #app.visible { display: block; }
 
         .app-header {
             background: var(--gray);
@@ -205,17 +184,9 @@
             z-index: 100;
         }
 
-        .header-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+        .header-brand { display: flex; align-items: center; gap: 0.75rem; }
 
-        .user-chip {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--muted);
-        }
+        .user-chip { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); }
         .user-chip strong { color: var(--accent2); }
 
         .nav-tabs {
@@ -248,7 +219,6 @@
 
         .content { padding: 1.5rem; max-width: 1100px; margin: 0 auto; }
 
-        /* ── PANELS ── */
         .panel {
             background: var(--gray);
             border: 1px solid #1e1e1e;
@@ -279,7 +249,6 @@
             display: inline-block;
         }
 
-        /* ── STATS BAR ── */
         .stats-bar {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -288,11 +257,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .stat-item {
-            background: var(--gray2);
-            padding: 1rem 1.25rem;
-            text-align: center;
-        }
+        .stat-item { background: var(--gray2); padding: 1rem 1.25rem; text-align: center; }
 
         .stat-num {
             font-size: 2rem;
@@ -310,15 +275,12 @@
             margin-top: 0.3rem;
         }
 
-        .stat-total .stat-num  { color: var(--accent2); }
-        .stat-used .stat-num   { color: var(--red); }
-        .stat-avail .stat-num  { color: var(--green); }
+        .stat-total .stat-num { color: var(--accent2); }
+        .stat-used .stat-num  { color: var(--red); }
+        .stat-avail .stat-num { color: var(--green); }
 
-        /* ── TABLE ── */
         .table-wrap { overflow-x: auto; }
-
         table { width: 100%; border-collapse: collapse; }
-
         thead tr { border-bottom: 2px solid #2a2a2a; }
 
         th {
@@ -331,12 +293,7 @@
             text-align: left;
         }
 
-        td {
-            padding: 0.75rem;
-            font-size: 0.85rem;
-            border-bottom: 1px solid #1a1a1a;
-        }
-
+        td { padding: 0.75rem; font-size: 0.85rem; border-bottom: 1px solid #1a1a1a; }
         tr:hover td { background: rgba(255,255,255,0.02); }
 
         .badge {
@@ -349,12 +306,11 @@
             text-transform: uppercase;
         }
 
-        .badge-org { background: rgba(0,229,255,0.15); color: var(--accent2); }
+        .badge-org   { background: rgba(0,229,255,0.15); color: var(--accent2); }
         .badge-guard { background: rgba(0,255,136,0.12); color: var(--green); }
-        .badge-used { background: rgba(255,34,68,0.15); color: var(--red); }
+        .badge-used  { background: rgba(255,34,68,0.15); color: var(--red); }
         .badge-avail { background: rgba(0,255,136,0.12); color: var(--green); }
 
-        /* ── TICKETS GRID ── */
         .tickets-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -389,12 +345,7 @@
             text-overflow: ellipsis;
         }
 
-        .ticket-meta {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.65rem;
-            color: var(--muted);
-            margin-bottom: 1rem;
-        }
+        .ticket-meta { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--muted); margin-bottom: 1rem; }
 
         .ticket-qr {
             background: white;
@@ -405,21 +356,9 @@
             margin-bottom: 0.75rem;
         }
 
-        .ticket-id {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.55rem;
-            color: var(--muted);
-            word-break: break-all;
-            margin-bottom: 0.75rem;
-        }
+        .ticket-id { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: var(--muted); word-break: break-all; margin-bottom: 0.75rem; }
+        .ticket-footer { display: flex; align-items: center; justify-content: space-between; }
 
-        .ticket-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        /* ── VERIFY PANEL ── */
         .mode-switcher {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -442,32 +381,14 @@
             transition: all 0.2s;
         }
 
-        .mode-btn.active {
-            background: var(--accent);
-            color: var(--white);
-        }
+        .mode-btn.active { background: var(--accent); color: var(--white); }
 
-        .result-box {
-            padding: 1.5rem;
-            border: 2px solid;
-            animation: fadeIn 0.2s ease;
-        }
-
+        .result-box { padding: 1.5rem; border: 2px solid; animation: fadeIn 0.2s ease; }
         .result-valid   { border-color: var(--green); background: rgba(0,255,136,0.05); }
         .result-used    { border-color: var(--yellow); background: rgba(255,230,0,0.05); }
         .result-invalid { border-color: var(--red); background: rgba(255,34,68,0.05); }
-
-        .result-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-bottom: 0.4rem;
-        }
-
-        .result-desc {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--muted);
-        }
+        .result-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.4rem; }
+        .result-desc { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--muted); }
 
         .result-info {
             margin-top: 1rem;
@@ -480,11 +401,9 @@
 
         .result-info strong { color: var(--white); }
 
-        /* ── QR SCANNER ── */
         #qr-reader { width: 100%; max-width: 480px; margin: 0 auto; }
         #qr-reader video { border-radius: 0 !important; }
 
-        /* ── DANGER ZONE ── */
         .danger-zone {
             border: 1px solid rgba(255,34,68,0.25);
             background: rgba(255,34,68,0.04);
@@ -500,7 +419,6 @@
             margin-bottom: 1rem;
         }
 
-        /* ── FIREBASE STATUS ── */
         .firebase-status {
             position: fixed;
             bottom: 1rem;
@@ -517,47 +435,19 @@
             z-index: 9000;
         }
 
-        .status-dot {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: var(--muted);
-        }
+        .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); }
         .status-dot.online  { background: var(--green); animation: pulse 2s infinite; }
         .status-dot.offline { background: var(--red); }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50%       { opacity: 0.3; }
-        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-        /* ── LOADING ── */
-        .loading {
-            text-align: center;
-            padding: 3rem;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--muted);
-            letter-spacing: 0.1em;
-        }
-
-        .spinner {
-            width: 24px; height: 24px;
-            border: 2px solid #222;
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
-            margin: 0 auto 1rem;
-        }
-
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        /* ── UTILITIES ── */
         .hidden { display: none !important; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
         .mt-1 { margin-top: 0.5rem; }
         .mt-2 { margin-top: 1rem; }
         .mt-3 { margin-top: 1.5rem; }
+
         .empty-state {
             text-align: center;
             padding: 3rem;
@@ -565,52 +455,6 @@
             font-size: 0.75rem;
             color: var(--muted);
             letter-spacing: 0.08em;
-        }
-
-        .setup-overlay {
-            position: fixed;
-            inset: 0;
-            background: var(--black);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-        }
-
-        .setup-box {
-            width: 100%;
-            max-width: 500px;
-            background: var(--gray);
-            border: 1px solid #2a2a2a;
-            padding: 2rem;
-            border-top: 3px solid var(--accent2);
-        }
-
-        .setup-box h2 {
-            font-size: 1.3rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .setup-box p {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.72rem;
-            color: var(--muted);
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-        }
-
-        .code-block {
-            background: var(--black);
-            border: 1px solid #2a2a2a;
-            padding: 0.75rem 1rem;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.7rem;
-            color: var(--accent2);
-            margin-bottom: 1rem;
-            word-break: break-all;
-            line-height: 1.6;
         }
 
         @media (max-width: 640px) {
@@ -622,38 +466,13 @@
 </head>
 <body>
 
-<!-- ██ FIREBASE CONFIG OVERLAY ██ -->
-<div id="setup-overlay" class="setup-overlay hidden">
-    <div class="setup-box">
-        <h2>⚡ Configurar Firebase</h2>
-        <p>Pega aquí la configuración de tu proyecto Firebase.<br>
-        Ve a Firebase Console → Tu proyecto → Configuración → Config de la app web.</p>
-        <div class="field">
-            <label>Firebase Config (JSON)</label>
-            <textarea id="firebase-config-input" rows="8"
-                style="width:100%;background:#000;border:1px solid #333;color:#00e5ff;padding:0.75rem;font-family:'Space Mono',monospace;font-size:0.7rem;resize:vertical;outline:none;"
-                placeholder='{
-  "apiKey": "AIza...",
-  "authDomain": "tu-proyecto.firebaseapp.com",
-  "databaseURL": "https://tu-proyecto-default-rtdb.firebaseio.com",
-  "projectId": "tu-proyecto",
-  "storageBucket": "tu-proyecto.appspot.com",
-  "messagingSenderId": "123456",
-  "appId": "1:123456:web:abc123"
-}'></textarea>
-        </div>
-        <button class="btn" onclick="guardarConfigFirebase()">Guardar y Conectar</button>
-        <div id="setup-error" class="error-msg mt-1"></div>
-    </div>
-</div>
-
 <!-- ██ LOGIN ██ -->
 <div id="pantalla-login" class="hidden">
     <div class="login-box">
         <div class="logo-mark">
             <div class="logo-icon">🎟</div>
             <div>
-                <div class="logo-text">Ticketon</div>
+                <div class="logo-text">Ticktex</div>
                 <div class="logo-sub">Sistema de Tickets QR</div>
             </div>
         </div>
@@ -680,7 +499,7 @@
         <div class="header-brand">
             <div class="logo-icon" style="width:32px;height:32px;font-size:1rem;">🎟</div>
             <div>
-                <div style="font-weight:800;font-size:1.1rem;letter-spacing:-0.02em;">Ticketon</div>
+                <div style="font-weight:800;font-size:1.1rem;letter-spacing:-0.02em;">Ticktex</div>
                 <div class="user-chip"><strong id="usuario-actual"></strong> / <span id="rol-actual"></span></div>
             </div>
         </div>
@@ -715,13 +534,7 @@
                 <div class="panel-title"><span class="accent-dot"></span> Usuarios del Sistema</div>
                 <div class="table-wrap">
                     <table>
-                        <thead>
-                            <tr>
-                                <th>Usuario</th>
-                                <th>Rol</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
+                        <thead><tr><th>Usuario</th><th>Rol</th><th>Acción</th></tr></thead>
                         <tbody id="lista-usuarios"></tbody>
                     </table>
                 </div>
@@ -828,22 +641,16 @@
     <span id="status-text" style="text-transform:uppercase;letter-spacing:0.1em;">desconectado</span>
 </div>
 
-<!-- ██ LIBS ██ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
-
-<!-- Firebase SDK (compat v9) -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <script>
-// ════════════════════════════════════════
-//  ESTADO GLOBAL
-// ════════════════════════════════════════
 let db = null;
-let tickets = {};          // { id: ticketObj }
-let ticketsUsados = {};    // { id: true }
-let usuarios = {};         // { key: userObj }
+let tickets = {};
+let ticketsUsados = {};
+let usuarios = {};
 let usuarioActual = null;
 let rolActual = null;
 let vistaActual = null;
@@ -852,22 +659,16 @@ let html5QrcodeScanner = null;
 let unsubscribeTickets = null;
 let unsubscribeUsados   = null;
 
-// ════════════════════════════════════════
-//  FIREBASE CONFIG
-// ════════════════════════════════════════
 function inicializarFirebase(config) {
     try {
         if (firebase.apps.length) firebase.apps[0].delete();
         firebase.initializeApp(config);
         db = firebase.database();
-
-        // Verificar conexión
         db.ref('.info/connected').on('value', snap => {
             const online = snap.val();
             document.getElementById('status-dot').className = 'status-dot ' + (online ? 'online' : 'offline');
             document.getElementById('status-text').textContent = online ? 'SINCRONIZADO' : 'SIN CONEXIÓN';
         });
-
         return true;
     } catch(e) {
         console.error(e);
@@ -875,13 +676,6 @@ function inicializarFirebase(config) {
     }
 }
 
-
-// ════════════════════════════════════════
-//  INICIO
-// ════════════════════════════════════════
-// ════════════════════════════════════════
-//  FIREBASE CONFIG — YA INTEGRADA
-// ════════════════════════════════════════
 const FIREBASE_CONFIG = {
     apiKey: "AIzaSyD2IvZ18mWOP-y15iuhILGXOnDLduVa-fU",
     authDomain: "ticketon-cc563.firebaseapp.com",
@@ -898,19 +692,15 @@ window.addEventListener('DOMContentLoaded', function() {
         mostrarLogin();
         verificarSesion();
     } else {
-        alert('Error al conectar con Firebase. Revisa tu configuración.');
+        alert('Error al conectar con Firebase.');
     }
 });
 
 function mostrarLogin() {
-    document.getElementById('setup-overlay').classList.add('hidden');
     document.getElementById('pantalla-login').classList.remove('hidden');
     document.getElementById('app').style.display = 'none';
 }
 
-// ════════════════════════════════════════
-//  SESIÓN
-// ════════════════════════════════════════
 function verificarSesion() {
     const sesion = sessionStorage.getItem('sesion');
     if (sesion) {
@@ -923,29 +713,20 @@ function verificarSesion() {
 
 function iniciarSesion() {
     if (!db) { alert('Firebase no conectado'); return; }
-
     const usr = document.getElementById('login-usuario').value.trim();
     const pwd = document.getElementById('login-password').value;
     const errEl = document.getElementById('error-login');
     errEl.classList.remove('show');
 
-    // Admin hardcoded (puedes cambiar)
     const admins = [{ usuario: 'leon', password: 'benitez01', rol: 'admin' }];
     const admin = admins.find(a => a.usuario === usr && a.password === pwd);
-    if (admin) {
-        loginExitoso(admin.usuario, admin.rol);
-        return;
-    }
+    if (admin) { loginExitoso(admin.usuario, admin.rol); return; }
 
-    // Buscar en Firebase
     db.ref('usuarios').once('value').then(snap => {
         const data = snap.val() || {};
         const found = Object.values(data).find(u => u.usuario === usr && u.password === pwd);
-        if (found) {
-            loginExitoso(found.usuario, found.rol);
-        } else {
-            errEl.classList.add('show');
-        }
+        if (found) { loginExitoso(found.usuario, found.rol); }
+        else { errEl.classList.add('show'); }
     }).catch(() => errEl.classList.add('show'));
 }
 
@@ -968,9 +749,6 @@ function cerrarSesion() {
     document.getElementById('login-password').value = '';
 }
 
-// ════════════════════════════════════════
-//  PANEL
-// ════════════════════════════════════════
 function mostrarPanel() {
     document.getElementById('pantalla-login').classList.add('hidden');
     document.getElementById('app').style.display = 'block';
@@ -978,7 +756,6 @@ function mostrarPanel() {
 
     const menu = document.getElementById('menu-navegacion');
     menu.innerHTML = '';
-
     const tabs = [];
 
     if (rolActual === 'admin') {
@@ -1009,24 +786,18 @@ function mostrarPanel() {
     cambiarVista(tabs[0].id);
 }
 
-// ════════════════════════════════════════
-//  LISTENERS FIREBASE TIEMPO REAL
-// ════════════════════════════════════════
 function iniciarListeners() {
     detenerListeners();
-
     unsubscribeTickets = db.ref('tickets').on('value', snap => {
         tickets = snap.val() || {};
         actualizarEstadisticas();
         if (vistaActual === 'lista') mostrarListaTickets();
     });
-
     unsubscribeUsados = db.ref('tickets-usados').on('value', snap => {
         ticketsUsados = snap.val() || {};
         actualizarEstadisticas();
         if (vistaActual === 'lista') mostrarListaTickets();
     });
-
     db.ref('usuarios').on('value', snap => {
         usuarios = snap.val() || {};
         if (vistaActual === 'admin-usuarios') actualizarListaUsuarios();
@@ -1041,19 +812,13 @@ function detenerListeners() {
     }
 }
 
-// ════════════════════════════════════════
-//  USUARIOS
-// ════════════════════════════════════════
 function crearUsuario() {
     const usuario  = document.getElementById('nuevo-usuario').value.trim();
     const password = document.getElementById('nuevo-password').value;
     const rol      = document.getElementById('nuevo-rol').value;
-
     if (!usuario || !password) { alert('Completa todos los campos'); return; }
-
     const existe = Object.values(usuarios).some(u => u.usuario === usuario);
     if (existe) { alert('El usuario ya existe'); return; }
-
     db.ref('usuarios').push({ usuario, password, rol })
         .then(() => {
             document.getElementById('nuevo-usuario').value = '';
@@ -1072,13 +837,11 @@ function eliminarUsuario(key, nombre) {
 function actualizarListaUsuarios() {
     const tbody = document.getElementById('lista-usuarios');
     tbody.innerHTML = '';
-
     const lista = Object.entries(usuarios);
     if (lista.length === 0) {
         tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;color:var(--muted);font-size:0.8rem;padding:1.5rem;">Sin usuarios creados</td></tr>';
         return;
     }
-
     lista.forEach(([key, u]) => {
         if (u.rol === 'admin') return;
         const tr = document.createElement('tr');
@@ -1093,9 +856,6 @@ function actualizarListaUsuarios() {
     });
 }
 
-// ════════════════════════════════════════
-//  TICKETS
-// ════════════════════════════════════════
 function generarCodigo() {
     const ts = Date.now();
     const r  = Math.random().toString(36).substr(2, 9).toUpperCase();
@@ -1104,27 +864,16 @@ function generarCodigo() {
 
 function generarTickets() {
     if (rolActual !== 'admin') { alert('Solo administradores'); return; }
-
     const evento   = document.getElementById('nombre-evento').value.trim();
     const cantidad = parseInt(document.getElementById('cantidad-tickets').value);
-
-    if (!evento)                  { alert('Ingresa el nombre del evento'); return; }
+    if (!evento) { alert('Ingresa el nombre del evento'); return; }
     if (cantidad < 1 || cantidad > 500) { alert('Cantidad entre 1 y 500'); return; }
-
     const total   = Object.keys(tickets).length;
     const updates = {};
-
     for (let i = 0; i < cantidad; i++) {
         const codigo = generarCodigo();
-        updates[codigo] = {
-            id: codigo,
-            evento,
-            fecha: new Date().toLocaleString('es-MX'),
-            numero: total + i + 1,
-            creador: usuarioActual
-        };
+        updates[codigo] = { id: codigo, evento, fecha: new Date().toLocaleString('es-MX'), numero: total + i + 1, creador: usuarioActual };
     }
-
     db.ref('tickets').update(updates)
         .then(() => alert('✓ ' + cantidad + ' ticket(s) generados'))
         .catch(e => alert('Error: ' + e.message));
@@ -1135,30 +884,20 @@ function resetearTickets() {
     const total = Object.keys(tickets).length;
     if (!confirm('¿Eliminar los ' + total + ' tickets? Esta acción no se puede deshacer.')) return;
     if (!confirm('CONFIRMACIÓN FINAL: ¿Continuar?')) return;
-
-    Promise.all([
-        db.ref('tickets').remove(),
-        db.ref('tickets-usados').remove()
-    ]).then(() => alert('Tickets eliminados ✓'))
-      .catch(e => alert('Error: ' + e.message));
+    Promise.all([db.ref('tickets').remove(), db.ref('tickets-usados').remove()])
+        .then(() => alert('Tickets eliminados ✓'))
+        .catch(e => alert('Error: ' + e.message));
 }
 
 function resetearSistemaCompleto() {
     if (rolActual !== 'admin') return;
     if (!confirm('⚠️ Esto eliminará TICKETS + USUARIOS (excepto admin). ¿Seguro?')) return;
     if (!confirm('ÚLTIMA CONFIRMACIÓN. ¿Resetear todo?')) return;
-
-    Promise.all([
-        db.ref('tickets').remove(),
-        db.ref('tickets-usados').remove(),
-        db.ref('usuarios').remove()
-    ]).then(() => alert('Sistema reseteado ✓'))
-      .catch(e => alert('Error: ' + e.message));
+    Promise.all([db.ref('tickets').remove(), db.ref('tickets-usados').remove(), db.ref('usuarios').remove()])
+        .then(() => alert('Sistema reseteado ✓'))
+        .catch(e => alert('Error: ' + e.message));
 }
 
-// ════════════════════════════════════════
-//  VERIFICACIÓN
-// ════════════════════════════════════════
 function verificarTicket() {
     const codigo = document.getElementById('codigo-verificar').value.trim().toUpperCase();
     if (!codigo) { mostrarResultado('invalid', 'Ingresa un código', ''); return; }
@@ -1173,18 +912,8 @@ function verificarTicketEscaneado(codigo) {
 
 function procesarVerificacion(codigo) {
     const ticket = tickets[codigo];
-
-    if (!ticket) {
-        mostrarResultado('invalid', '❌ Ticket No Existe', 'Este código no está registrado.');
-        return;
-    }
-
-    if (ticketsUsados[codigo]) {
-        mostrarResultado('used', '⚠️ Ticket Ya Utilizado', 'Este ticket ya fue escaneado.', ticket);
-        return;
-    }
-
-    // Marcar como usado en Firebase
+    if (!ticket) { mostrarResultado('invalid', '❌ Ticket No Existe', 'Este código no está registrado.'); return; }
+    if (ticketsUsados[codigo]) { mostrarResultado('used', '⚠️ Ticket Ya Utilizado', 'Este ticket ya fue escaneado.', ticket); return; }
     db.ref('tickets-usados/' + codigo).set(true)
         .then(() => mostrarResultado('valid', '✅ Acceso Permitido', 'Ticket válido.', ticket))
         .catch(e => mostrarResultado('invalid', 'Error de red', e.message));
@@ -1193,10 +922,8 @@ function procesarVerificacion(codigo) {
 function mostrarResultado(tipo, titulo, desc, ticket) {
     const el = document.getElementById('resultado-verificacion');
     el.classList.remove('hidden');
-
     const clsMap = { valid: 'result-valid', used: 'result-used', invalid: 'result-invalid' };
     const cls = clsMap[tipo] || 'result-invalid';
-
     let info = '';
     if (ticket) {
         info = `<div class="result-info">
@@ -1205,7 +932,6 @@ function mostrarResultado(tipo, titulo, desc, ticket) {
             <div><strong>Emitido:</strong> ${ticket.fecha}</div>
         </div>`;
     }
-
     el.innerHTML = `<div class="result-box ${cls}">
         <div class="result-title">${titulo}</div>
         <div class="result-desc">${desc}</div>
@@ -1215,10 +941,8 @@ function mostrarResultado(tipo, titulo, desc, ticket) {
 
 function cambiarModoVerificacion(modo) {
     modoVerificacion = modo;
-
-    document.getElementById('btn-modo-manual').classList.toggle('active',   modo === 'manual');
+    document.getElementById('btn-modo-manual').classList.toggle('active', modo === 'manual');
     document.getElementById('btn-modo-escanear').classList.toggle('active', modo === 'escanear');
-
     if (modo === 'manual') {
         document.getElementById('modo-manual').classList.remove('hidden');
         document.getElementById('modo-escanear').classList.add('hidden');
@@ -1251,25 +975,18 @@ function detenerEscaneo() {
     }
 }
 
-// ════════════════════════════════════════
-//  LISTA DE TICKETS
-// ════════════════════════════════════════
 function mostrarListaTickets() {
     const contenedor = document.getElementById('contenedor-tickets');
     const lista = Object.values(tickets);
-
     actualizarEstadisticasLista();
-
     if (lista.length === 0) {
         contenedor.innerHTML = '<div class="empty-state" style="grid-column:1/-1;">SIN TICKETS GENERADOS</div>';
         return;
     }
-
     let html = '';
     lista.forEach(ticket => {
         const usado = !!ticketsUsados[ticket.id];
         const qrId  = 'qr-' + ticket.id.replace(/[^a-zA-Z0-9]/g, '');
-
         html += `
         <div class="ticket-card ${usado ? 'used' : 'avail'}">
             <div class="ticket-evento">${ticket.evento}</div>
@@ -1282,13 +999,11 @@ function mostrarListaTickets() {
             </div>
         </div>`;
     });
-
     contenedor.innerHTML = html;
-
     setTimeout(() => {
         lista.forEach(ticket => {
-            const qrId  = 'qr-' + ticket.id.replace(/[^a-zA-Z0-9]/g, '');
-            const el    = document.getElementById(qrId);
+            const qrId = 'qr-' + ticket.id.replace(/[^a-zA-Z0-9]/g, '');
+            const el   = document.getElementById(qrId);
             if (el && el.innerHTML === '') {
                 new QRCode(el, { text: ticket.id, width: 130, height: 130,
                     colorDark: '#000', colorLight: '#fff', correctLevel: QRCode.CorrectLevel.H });
@@ -1300,47 +1015,37 @@ function mostrarListaTickets() {
 function descargarTicket(ticketId) {
     const ticket = tickets[ticketId];
     if (!ticket) return;
-
-    const qrId = 'qr-' + ticketId.replace(/[^a-zA-Z0-9]/g, '');
-    const qrEl = document.getElementById(qrId);
+    const qrId  = 'qr-' + ticketId.replace(/[^a-zA-Z0-9]/g, '');
+    const qrEl  = document.getElementById(qrId);
     const qrImg = qrEl ? qrEl.querySelector('img') : null;
     if (!qrImg) { alert('QR no generado aún'); return; }
-
     const canvas = document.createElement('canvas');
     canvas.width  = 400;
     canvas.height = 520;
     const ctx = canvas.getContext('2d');
-
     ctx.fillStyle = '#0a0a0a';
     ctx.fillRect(0, 0, 400, 520);
-
     ctx.fillStyle = '#ff4d00';
     ctx.fillRect(0, 0, 400, 4);
-
     ctx.fillStyle = '#f5f0e8';
     ctx.font = 'bold 22px Arial';
     ctx.textAlign = 'center';
     ctx.fillText(ticket.evento, 200, 40);
-
     ctx.fillStyle = '#888';
     ctx.font = '13px monospace';
     ctx.fillText('TICKET #' + ticket.numero + '  ·  ' + ticket.fecha, 200, 65);
-
     const img = new Image();
     img.crossOrigin = 'anonymous';
     img.onload = function() {
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(50, 90, 300, 300);
         ctx.drawImage(img, 60, 100, 280, 280);
-
         ctx.fillStyle = '#555';
-        ctx.font      = '10px monospace';
+        ctx.font = '10px monospace';
         ctx.fillText(ticket.id, 200, 420);
-
         ctx.fillStyle = '#f5f0e8';
         ctx.font = 'bold 16px Arial';
-        ctx.fillText('TICKETON', 200, 460);
-
+        ctx.fillText('TICKTEX', 200, 460);
         const link = document.createElement('a');
         link.download = 'ticket-' + ticket.numero + '.png';
         link.href = canvas.toDataURL('image/png');
@@ -1349,14 +1054,10 @@ function descargarTicket(ticketId) {
     img.src = qrImg.src;
 }
 
-// ════════════════════════════════════════
-//  ESTADÍSTICAS
-// ════════════════════════════════════════
 function actualizarEstadisticas() {
     const total = Object.keys(tickets).length;
     const used  = Object.keys(ticketsUsados).length;
     const avail = total - used;
-
     ['stat-total','stat-used','stat-avail'].forEach((id, i) => {
         const el = document.getElementById(id);
         if (el) el.textContent = [total, used, avail][i];
@@ -1367,7 +1068,6 @@ function actualizarEstadisticasLista() {
     const total = Object.keys(tickets).length;
     const used  = Object.keys(ticketsUsados).length;
     const avail = total - used;
-
     const tl = document.getElementById('stat-total-lista');
     const ul = document.getElementById('stat-used-lista');
     const al = document.getElementById('stat-avail-lista');
@@ -1376,27 +1076,19 @@ function actualizarEstadisticasLista() {
     if (al) al.textContent = avail;
 }
 
-// ════════════════════════════════════════
-//  NAVEGACIÓN
-// ════════════════════════════════════════
 function cambiarVista(vista) {
     if (vistaActual === 'verificar') detenerEscaneo();
     vistaActual = vista;
-
     ['admin-usuarios','generar','verificar','lista'].forEach(v => {
         document.getElementById('vista-' + v).classList.add('hidden');
     });
-
     document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
-
     document.getElementById('vista-' + vista).classList.remove('hidden');
     const btn = document.getElementById('btn-' + vista);
     if (btn) btn.classList.add('active');
-
     if (vista === 'lista')          mostrarListaTickets();
     if (vista === 'admin-usuarios') actualizarListaUsuarios();
     if (vista === 'generar')        actualizarEstadisticas();
-
     document.getElementById('resultado-verificacion')?.classList.add('hidden');
 }
 </script>
